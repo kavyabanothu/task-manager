@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task Manager with Progress Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app" role="application" aria-label="Task Manager with Progress Tracker">
+    <header>
+      <h1>Task Manager — Progress Tracker</h1>
+      <div class="controls">
+        <select id="filter" title="Filter tasks">
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="completed">Completed</option>
+        </select>
+        <button id="clearCompleted" class="btn ghost">Clear Completed</button>
+        <button id="export" class="btn ghost">Export</button>
+      </div>
+    </header>
+
+    <div class="main">
+      <section class="card" aria-labelledby="addHeading">
+        <h2 id="addHeading">Add / Edit Task</h2>
+        <div class="input-row">
+          <input id="title" type="text" placeholder="Task title (required)" />
+          <input id="due" type="date" />
+          <select id="priority">
+            <option value="low">Low priority</option>
+            <option value="medium" selected>Medium priority</option>
+            <option value="high">High priority</option>
+          </select>
+        </div>
+        <textarea id="desc" placeholder="Short description (optional)"></textarea>
+        <div class="btn-row">
+          <button id="save" class="btn">Add Task</button>
+          <button id="reset" class="btn ghost">Reset</button>
+        </div>
+
+        <hr />
+
+        <div class="progress-wrap">
+          <div class="stats" id="counts">0 tasks • 0 completed</div>
+          <div class="bar"><i id="progressFill"></i></div>
+          <div id="percent">0%</div>
+        </div>
+
+        <div id="taskContainer" class="task-list">
+          <div class="empty">No tasks yet — add one on the left.</div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h2>Overview & Quick Actions</h2>
+        <p>Tasks are stored in your browser (localStorage)</p>
+        <div class="btn-row">
+          <button id="toggleAll" class="btn ghost">Toggle All Complete</button>
+          <button id="deleteAll" class="btn ghost">Delete All</button>
+        </div>
+
+        <hr />
+        <h3>Legend</h3>
+        <div class="chips">
+          <div class="chip">✅ Complete</div>
+          <div class="chip">📝 Edit</div>
+          <div class="chip">🗑️ Delete</div>
+          <div class="chip">📅 Due date</div>
+          <div class="chip">🔥 High priority</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
